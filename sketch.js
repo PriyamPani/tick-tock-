@@ -8,31 +8,50 @@ function setup(){
 function draw(){
   background(0);
   
-  hr = hour();
-  mn = minute();
-  sc = second();
+  background(0);  
+  translate(200,200)
+  rotate(-90)
+  ho=hour()
+  min=minute()
+  sec=second()
+  
+  sa=map(sec,0,60,0,360)
+  ma=map(min,0,60,0,360)
+  ha=map(ho%12,0,12,0,360)
 
-  strokeWeight(6);  
-  noFill();
+  push()
+  rotate(sa)
+  stroke(255,0,0)
+  strokeWeight(7)
+  line(0,0,100,0)
+  pop()
 
-  stroke("yellow");
-  var mysecond = map(sc,0,60,0,360);
-  arc(400,300,500,500,0, mysecond);
+  push()
+  rotate(ma)
+  stroke(0,255,0)
+  strokeWeight(7)
+  line(0,0,75,0)
+  pop()
 
-  stroke("red");
-  var myminute = map(mn,0,60,0,360);
-  arc(400,300,480,480,0, myminute);
+  push()
+  rotate(ha)
+  stroke(0,0,255)
+  strokeWeight(7)
+  line(0,0,50,0)
+  pop()
 
-  stroke("blue");
-  var myhour = map(hr %12,0,12,0,360);
-  arc(400,300,460,460,0, myhour);
+  stroke(255,0,255)
+  point(0,0)
+  strokeWeight(10)
+  noFill()
 
-  fill("coral");
-  noStroke();
-  textSize(75);
-  text(hr + ':' + mn + ':' + sc,260,700);
+  stroke(255,0,0)
+  arc(0,0,300,300,0,sa)
 
-  fill("lightBlue");
-  textSize(35);
-  text("Time is Tickining",285,50);
+  stroke(0,255,0)
+  arc(0,0,280,280,0,ma)
+
+  stroke(0,0,255)
+  arc(0,0,260,260,0,ha)
+
 }
